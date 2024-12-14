@@ -1,0 +1,54 @@
+﻿@page
+@using DoAnMonHoc_23880108.Entity
+@model DoAnMonHoc_23880108.Pages.MH_XemChiTietHoaDonNhapHangModel
+@{
+}
+@if (Model.hd != null)
+{
+	<p style=" text-align:center; font-size:larger; font-weight: bold">HÓA ĐƠN NHẬP HÀNG</p>
+
+	<div><a style="font-weight:bold">Mã hóa đơn:</a> @Model.hd.Ma</div>
+	<div><a style="font-weight:bold">Tên Người/Đơn Vị bán hàng:</a> @Model.hd.TenNguoi</div>
+	<div><a style="font-weight:bold">Ngày tạo hóa đơn:</a> @Model.hd.NgayTao</div>
+	<br>
+
+	<div>
+		<table>
+			<tr>
+				<th>Tên Hàng Hóa, Dịch Vụ</th>
+				<th>Đơn Vị</th>
+				<th>Số Lượng</th>
+				<th>Đơn Giá (VNĐ)</th>
+				<th>Thành Tiền (VNĐ)</th>
+			</tr>
+			@foreach (DanhMuc danhMuc in Model.mh)
+			{
+				<tr>
+					<td>@danhMuc.TenHang</td>
+					<td>@danhMuc.DonVi</td>
+					<td>@danhMuc.SoLuong</td>
+					<td>@danhMuc.DonGia.ToString("#,##0")</td>
+					<td>@((danhMuc.SoLuong * danhMuc.DonGia).ToString("#,##0"))</td>
+				</tr>
+			}
+		</table>
+		<p style=" text-align:right">TỔNG CỘNG: @Model.sum.ToString("#,##0") (VNĐ)</p>
+	</div>
+	<br>
+
+	<div style="text-align: center">
+		<p style="font-style: italic">
+			TP.HCM, ngày @Model.hd.NgayTao.Substring(Model.hd.NgayTao.Length - 2) tháng @Model.hd.NgayTao.Substring(5,2) năm @Model.hd.NgayTao.Substring(0, 4)
+		</p>
+		<p style="font-weight: bold ">
+			Người tạo hóa đơn
+		</p><br><br>
+		<p>
+			Nguyễn Tiến Phát
+		</p>
+	</div>
+}
+else
+{
+	<p>Không tìm thấy thông tin hóa đơn</p>
+}

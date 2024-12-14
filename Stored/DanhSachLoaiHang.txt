@@ -1,0 +1,1 @@
+[{"Ma":"LH01","Ten":"Thực phẩm"},{"Ma":"LH03","Ten":"Đồ điện tử"},{"Ma":"LH02","Ten":"Đồ gia dụng"}]

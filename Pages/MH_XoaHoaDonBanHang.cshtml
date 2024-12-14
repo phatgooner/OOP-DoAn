@@ -1,0 +1,14 @@
+﻿@page
+@model DoAnMonHoc_23880108.Pages.MH_XoaHoaDonBanHangModel
+@{
+}
+<p>@Model.Chuoi</p>
+<p>@Model.tuKhoa</p>
+@if (Model.tuKhoa == string.Empty)
+{
+	<div>
+		<form method="POST">
+			<input type="submit" value="Xóa" />
+		</form>
+	</div>
+}

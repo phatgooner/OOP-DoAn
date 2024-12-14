@@ -1,0 +1,20 @@
+﻿@page
+@using DoAnMonHoc_23880108.LuuTru;
+@using DoAnMonHoc_23880108.NghiepVu;
+@using DoAnMonHoc_23880108.Entity;
+
+@model DoAnMonHoc_23880108.Pages.MH_DangNhapModel
+@{}
+
+<p style=" text-align:center; font-size:larger; font-weight: bold">ĐĂNG NHẬP TÀI KHOẢN NGƯỜI DÙNG</p>
+<p>@Model.Chuoi</p>
+<div style=" text-align:center">
+	<form method="POST">
+		<label for="fname">Nhập username:</label><br>
+		<input type="text" id="fname" name="id" value=""><br><br>
+		<label for="fname">Nhập mật khẩu:</label><br>
+		<input type="password" id="fname" name="password" value=""><br><br>
+
+		<input type="submit" value="Đăng nhập" />
+	</form>
+</div>

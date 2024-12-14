@@ -1,0 +1,54 @@
+﻿@page
+@using DoAnMonHoc_23880108.Entity
+@model DoAnMonHoc_23880108.Pages.MH_QuanLyHoaDonNhapHangModel
+@{
+}
+<p style=" text-align:center; font-size:larger; font-weight: bold">DANH SÁCH HÓA ĐƠN NHẬP HÀNG</p>
+
+<div>
+	<form method="POST">
+		<label for="fname">Tìm mã hóa đơn:</label><br>
+		<input type="text" id="fname" name="tukhoa" value="@Model.tuKhoa">
+
+
+		<input type="submit" value="Tìm kiếm" />
+	</form>
+</div>
+<br>
+
+
+@if (Model.ds != null)
+{
+	<div>
+		<table>
+			<tr>
+				<th>Mã Hóa Đơn</th>
+				<th>Tên Người/Đơn vị bán hàng</th>
+				<th>Ngày Tạo Hóa Đơn</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+			@foreach (HoaDon hd in Model.ds)
+			{
+				<tr>
+					<td>@hd.Ma</td>
+					<td>@hd.TenNguoi</td>
+					<td>@hd.NgayTao</td>
+					<td>
+						<a href="/MH_XemChiTietHoaDonNhapHang?maHD=@hd.Ma">Xem chi tiết</a>
+					</td>
+					<td>
+						<a href="/MH_SuaHoaDonNhapHang?maHD=@hd.Ma">Sửa thông tin</a>
+					</td>
+					<td>
+						<a href="/MH_XoaHoaDonNhapHang?maHD=@hd.Ma">Xóa</a>
+					</td>
+				</tr>
+			}
+		</table>
+	</div>
+}
+<div>
+	<a href="/MH_ThemHoaDonNhapHang">Tạo Hóa Đơn Mới</a>
+</div>

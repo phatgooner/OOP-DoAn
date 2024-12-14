@@ -1,0 +1,73 @@
+﻿@page
+@using DoAnMonHoc_23880108.Entity
+@model DoAnMonHoc_23880108.Pages.MH_ThemDanhMucBanHangModel
+@{
+}
+@if (Model.hd != null)
+{
+	<div><a style="font-weight:bold">Mã hóa đơn:</a> @Model.hd.Ma</div>
+	<div><a style="font-weight:bold">Họ tên người/đơn vị mua hàng:</a> @Model.hd.TenNguoi</div>
+	<div><a style="font-weight:bold">Ngày tạo hóa đơn:</a> @Model.hd.NgayTao</div>
+	<br>
+
+	<div>
+		<form method="POST">
+			<table>
+				<tr>
+					<th>Tên Hàng Hóa, Dịch Vụ</th>
+					<th>Đơn Vị</th>
+					<th>Số Lượng</th>
+					<th>Đơn Giá (VNĐ)</th>
+					<th>Thành Tiền (VNĐ)</th>
+					<th></th>
+				</tr>
+
+
+				@foreach (DanhMuc danhMuc in Model.mh)
+				{
+					<tr>
+						<td>@danhMuc.TenHang</td>
+						<td>@danhMuc.DonVi</td>
+						<td>@danhMuc.SoLuong</td>
+						<td>@danhMuc.DonGia.ToString("#,##0")</td>
+						<td>@((danhMuc.SoLuong * danhMuc.DonGia).ToString("#,##0"))</td>
+						<td>
+							<a href="/MH_XoaDanhMucBanHang?maHD=@danhMuc.MaHoaDon&tenHang=@danhMuc.TenHang">Xóa</a>
+						</td>
+					</tr>
+				}
+				<tr>
+					<th>
+						<select name="tenHang" asp-for="SelectedValue">
+							@foreach (var item in Model.a)
+							{
+								<option value="@item">@item</option>
+							}
+						</select>
+					</th>
+					<th><input type="text" id="fname" name="donVi" value="@Model.donVi"></th>
+					<th><input type="text" id="fname" name="soLuong" value="@Model.soLuong"></th>
+					<th><input type="text" id="fname" name="donGia" value="@Model.donGia"></th>
+					<th>0</th>
+					<th>
+						<button type="submit" name="action" value="add">Thêm</button>
+					</th>
+				</tr>
+			</table><br>
+
+			<p style=" text-align:right">TỔNG CỘNG: @Model.sum.ToString("#,##0") (VNĐ)</p><br>
+			@if (Model.sum > 0)
+			{
+				<div style="text-align:center">
+					<button type="submit" name="action" value="save">Hoàn tất</button>
+				</div>
+			}
+		</form>
+	</div>
+	<br>
+	<p>@Model.Chuoi</p>
+}
+else
+{
+	<p>Không tìm thấy thông tin hóa đơn!</p>
+}

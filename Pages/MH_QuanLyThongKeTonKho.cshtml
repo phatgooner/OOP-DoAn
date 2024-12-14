@@ -1,0 +1,23 @@
+﻿@page
+@model DoAnMonHoc_23880108.Pages.MH_QuanLyThongKeTonKhoModel
+@{
+}
+<p style=" text-align:center; font-size:larger; font-weight: bold">DANH SÁCH MẶT HÀNG CÒN LẠI TRONG KHO</p>
+
+<div>
+	<table>
+		<tr>
+			<th>STT</th>
+			<th>Tên Hàng</th>
+			<th>Số lượng hiện có</th>
+		</tr>
+		@for (int i = 0; i < Model.ds.Count; i++)
+		{
+			<tr>
+				<td>@(i + 1)</td>
+				<td>@Model.ds[i]</td>
+				<td>@Model.SoLuongSanPhamConLai(Model.ds[i])</td>
+			</tr>
+		}
+	</table>
+</div>

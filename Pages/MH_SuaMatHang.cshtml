@@ -1,0 +1,39 @@
+﻿@page
+@model DoAnMonHoc_23880108.Pages.MH_SuaMatHangModel
+@{
+}
+<p>@Model.Chuoi</p>
+<p>@Model.tuKhoa</p>
+@if(Model.tuKhoa == string.Empty)
+{
+	<div>
+		<form method="POST">
+
+			<label for="fname">Nhập Tên mặt hàng:</label><br>
+			<input type="text" id="fname" name="ten" value="@Model.ten"><br>
+
+			<label for="fname">Nhập Loại hàng:</label><br>
+			<select name="loai" asp-for="SelectedValue">
+				@foreach (var item in Model.ds)
+				{
+					<option value="@item">@item</option>
+				}
+			</select><br>
+
+			<label for="fname">Nhập Tên công ty sản xuất:</label><br>
+			<input type="text" id="fname" name="congty" value="@Model.congTy"><br>
+
+			<label for="fname">Nhập ngày sản xuất:</label><br>
+			<input type="date" id="fname" name="nsx" value="@Model.nsx"><br>
+
+			<label for="fname">Nhập hạn sử dụng:</label><br>
+			<input type="date" id="fname" name="hsd" value="@Model.hsd"><br>
+
+			<label for="fname">Nhập Giá mặt hàng:</label><br>
+			<input type="text" id="fname" name="gia" value="@Model.gia"><br><br>
+
+			<input type="submit" value="Sửa" />
+		</form>
+	</div>
+}
+

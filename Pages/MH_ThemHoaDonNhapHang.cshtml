@@ -1,0 +1,21 @@
+﻿@page
+@model DoAnMonHoc_23880108.Pages.MH_ThemHoaDonNhapHangModel
+@{
+}
+<p>Tạo hóa đơn mới</p>
+
+<div>
+	<form method="POST">
+		<label for="fname">Nhập Mã hóa đơn:</label><br>
+		<input type="text" id="fname" name="maHD" value="@Model.maHD"><br>
+
+		<label for="fname">Nhập Tên người/đơn vị bán hàng:</label><br>
+		<input type="text" id="fname" name="tenNguoiBan" value="@Model.tenNguoiBan"><br>
+
+		<label for="fname">Nhập ngày tạo hóa đơn:</label><br>
+		<input type="date" id="fname" name="ngayTao" value="@Model.ngayTao"><br><br>
+
+		<input type="submit" value="Thêm danh mục hàng hóa" />
+	</form>
+</div>
+<p>@Model.Chuoi</p>

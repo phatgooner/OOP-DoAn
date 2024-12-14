@@ -1,0 +1,35 @@
+﻿@page
+@model DoAnMonHoc_23880108.Pages.MH_XemChiTietLoaiHangModel
+@{
+}
+<p>Danh Sách mặt hàng thuộc loại hàng @Model.tenLoai</p>
+
+
+@if (Model.ds != null)
+{
+	<div>
+		<table>
+			<tr>
+				<th>Mã Hàng</th>
+				<th>Tên Hàng</th>
+				<th>Loại Hàng</th>
+				<th>Công ty Sản Xuất</th>
+				<th>Ngày Sản Xuất</th>
+				<th>Hạn Sử Dụng</th>
+				<th>Giá (VNĐ)</th>
+			</tr>
+			@foreach (var sp in Model.ds)
+			{
+				<tr>
+					<td>@sp.Ma</td>
+					<td>@sp.Ten</td>
+					<td>@sp.Loai</td>
+					<td>@sp.CongTySX</td>
+					<td>@sp.NSX</td>
+					<td>@sp.HSD</td>
+					<td>@sp.Gia.ToString("#,##0")</td>
+				</tr>
+			}
+		</table>
+	</div>
+}

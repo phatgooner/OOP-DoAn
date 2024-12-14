@@ -1,0 +1,18 @@
+﻿@page
+@model DoAnMonHoc_23880108.Pages.MH_SuaLoaiHangModel
+@{
+}
+<p>@Model.Chuoi</p>
+<p>@Model.tuKhoa</p>
+@if (Model.tuKhoa == string.Empty)
+{
+	<div>
+		<form method="POST">
+
+			<label for="fname">Nhập Tên loại hàng:</label><br>
+			<input type="text" id="fname" name="tenLH" value="@Model.tenLH"><br>			
+
+			<input type="submit" value="Sửa" />
+		</form>
+	</div>
+}

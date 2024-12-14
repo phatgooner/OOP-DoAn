@@ -1,0 +1,18 @@
+﻿@page
+@model DoAnMonHoc_23880108.Pages.MH_ThemLoaiHangModel
+@{
+}
+<p>Thêm loại hàng</p>
+
+<div>
+	<form method="POST">
+		<label for="fname">Nhập Mã mặt hàng:</label><br>
+		<input type="text" id="fname" name="ma" value="@Model.ma"><br>
+
+		<label for="fname">Nhập Tên Loại hàng:</label><br>
+		<input type="text" id="fname" name="ten" value="@Model.ten"><br><br>
+
+		<input type="submit" value="Thêm" />
+	</form>
+</div>
+<p>@Model.Chuoi</p>
